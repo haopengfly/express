@@ -35,3 +35,20 @@ exports.consume = function (req,res){
         }
     })
 };
+
+//des加密测试
+exports.dodes = function (req,res) {
+    const crypto = require("crypto");
+    const str=req.body.str;
+
+    //加密
+    const cipher = crypto.createCipher('des','fffaa');
+    const mi = cipher.update(str,'utf8','base64') + cipher.final('base64');
+    console.log(mi);
+
+    //解密
+    const decipher = crypto.createDecipher('des','fffaa');
+    const jie = decipher.update(mi,'base64','utf8') + decipher.final('utf8');
+    res.send(jie);
+
+};

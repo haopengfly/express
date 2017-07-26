@@ -9,4 +9,5 @@ var user = require('../controllers/user');
 // });
 router.post('/user/info',user.info);
 router.post('/user/consume',user.consume);
+router.post('/user/dodes',user.dodes);
 module.exports = router;
